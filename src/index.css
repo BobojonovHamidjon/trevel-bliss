@@ -1,0 +1,5 @@
+@import "tailwindcss";
+.active-link {
+  border-bottom: 2px solid blue; 
+  padding-bottom: 2px;
+}
