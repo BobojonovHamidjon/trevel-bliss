@@ -62,7 +62,7 @@ const Destinations = () => {
         className="h-80 bg-cover bg-center  flex items-center justify-center mb-6"
         style={{ backgroundImage: `url('/images/group.jpg')` }}
       >
-        <h2 className="text-4xl font-bold text-white shadow-md">Explore Destinations</h2>
+        <h2 className="text-4xl font-bold text-white">Explore Destinations</h2>
       </div>
 
      
