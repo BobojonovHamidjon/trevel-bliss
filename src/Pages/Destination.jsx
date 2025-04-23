@@ -1,54 +1,57 @@
+import { t } from "i18next";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const destinations = [
   {
-    name: "Himalayas",
+    name: t("destinations.name"),
     image: "/images/himalay.jpg",
-    description: "Support for your travel needs — from start to finish.",
+    description: t("destinations.description"),
   },
   {
-    name: "Alps",
+    name: t("destinations.name2"),
     image: "/images/alps.jpg",
-    description: "Breathtaking scenic routes and mountain adventures.",
+    description: t("destinations.description2"),
   },
   {
-    name: "Andes",
+    name: t("destinations.name3"),
     image: "/images/andes.jpg",
-    description: "Support, deep warmth, and rich cultural heritage.",
+    description: t("destinations.description3"),
   },
   {
-    name: "Rockies",
+    name: t("destinations.name4"),
     image: "/images/rokies.jpg",
-    description: "24/7 help at every step of your adventure",
+    description: t("destinations.description4"),
   },
   {
-    name: "Caucasus",
+    name: t("destinations.name5"),
     image: "/images/coucasus.jpg",
-    description: "Non-stop support from booking to your return home",
+    description: t("destinations.description5"),
   },
   {
-    name: "Carpathians",
+    name: t("destinations.name6"),
     image: "/images/carpathianus.jpg",
-    description: "We’re here for you — anytime, anywhere.",
+    description: t("destinations.description6"),
   },
   {
-    name: "Tian Shan",
+    name: t("destinations.name7"),
     image: "/images/tiyanshan.jpg",
-    description: "24/7 care for a seamless travel experience.",
+    description: t("destinations.description7"),
   },
   {
-    name: "Altai",
+    name: t("destinations.name8"),
     image: "/images/altai.jpg",
-    description: "Help at every moment, wherever your travels take you",
+    description: t("destinations.description8"),
   },
   {
-    name: "Pamir",
+    name: t("destinations.name9"),
     image: "/images/pamir.jpg",
-    description: "Around-the-clock assistance for stress-free travel.",
+    description: t("destinations.description9"),
   },
 ];
 
 const Destinations = () => {
+  const { t } = useTranslation(); 
   const [search, setSearch] = useState("");
 
   const filtered = destinations.filter((dest) =>
@@ -62,7 +65,7 @@ const Destinations = () => {
         className="h-80 bg-cover bg-center  flex items-center justify-center mb-6"
         style={{ backgroundImage: `url('/images/group.jpg')` }}
       >
-        <h2 className="text-4xl font-bold text-white">Explore Destinations</h2>
+        <h2 className="text-4xl font-bold text-white">{t("destinations.title")}</h2>
       </div>
 
      
@@ -70,7 +73,7 @@ const Destinations = () => {
       <div className="flex justify-end mb-8">
         <input
           type="text"
-          placeholder="Search"
+          placeholder={t("gallery.Search")}
           className="border border-gray-300 rounded-full px-5 py-2 w-full max-w-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

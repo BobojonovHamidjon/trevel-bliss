@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaFacebook, FaInstagram, FaTimes } from "react-icons/fa";
 
 const ContactUs = () => {
+  const { t } = useTranslation(); 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -55,7 +57,7 @@ const ContactUs = () => {
   }}
 >
   <h1 className="text-5xl font-bold text-white drop-shadow-xl">
-    Contact Us
+   {t("contact.title")}
   </h1>
 
  
@@ -75,8 +77,8 @@ const ContactUs = () => {
       <div className="min-h-screen bg-gray-200">
       <div className="max-w-7xl mx-auto  px-6 py-16 grid md:grid-cols-2 gap-12">
         <div className="bg-[#0F2C3F] text-white rounded-xl p-8 shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
-          <p className="mb-6 text-sm">Say something to start a live chat!</p>
+          <h2 className="text-xl font-semibold mb-4">{t("contact.subtitle")}</h2>
+          <p className="mb-6 text-sm"> {t("contact.subtitle")}</p>
           <ul className="space-y-4 text-sm">
             <li>📞 +5013 2456 456</li>
             <li>✉️ demo@gmail.com</li>
@@ -84,28 +86,42 @@ const ContactUs = () => {
           </ul>
         </div>
 
-        {/* Contact Form */}
+
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <input type="text" name="firstName" placeholder="First Name" className="border-b p-2 outline-none" required value={formData.firstName} onChange={handleChange} />
-            <input type="text" name="lastName" placeholder="Last Name" className="border-b p-2 outline-none" required value={formData.lastName} onChange={handleChange} />
+            <input type="text" name="firstName"
+             placeholder= {t("contact.name")}
+             className="border-b p-2 outline-none"
+             
+             required value={formData.firstName} onChange={handleChange} />
+            <input type="text" name="lastName"
+             placeholder= {t("contact.name2")}
+             className="border-b p-2 outline-none"
+              required value={formData.lastName} onChange={handleChange} />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <input type="email" name="email" placeholder="Email" className="border-b p-2 outline-none" required value={formData.email} onChange={handleChange} />
-            <input type="tel" name="phone" placeholder="Phone Number" className="border-b p-2 outline-none" value={formData.phone} onChange={handleChange} />
+            <input type="email" name="email"
+             placeholder= {t("contact.email")}
+              className="border-b p-2 outline-none"
+               required value={formData.email} onChange={handleChange} />
+            <input type="tel" name="phone"
+             placeholder= {t("contact.phone")}
+              className="border-b p-2 outline-none" value={formData.phone} onChange={handleChange} />
           </div>
-          <textarea name="message" placeholder="Write your message..." className="w-full border-b p-2 outline-none resize-none" rows="5" required value={formData.message} onChange={handleChange}></textarea>
+          <textarea name="message" placeholder= {t("contact.send")} 
+          className="w-full border-b p-2 outline-none resize-none" 
+          rows="5" required value={formData.message} onChange={handleChange}></textarea>
           <button type="submit" className="bg-[#0F2C3F] text-white px-6 py-3 rounded-md hover:bg-[#14394f] transition">
-            Send Message
+            {t("contact.button")}
           </button>
         </form>
       </div>
       </div>
       <div className="bg-white py-16 px-6">
   <div className="max-w-5xl mx-auto text-center">
-    <h2 className="text-3xl font-bold mb-4">Find Us on Map</h2>
+    <h2 className="text-3xl font-bold mb-4"> {t("contact.map")} </h2>
     <p className="text-gray-600 mb-10">
-      We are located in the heart of the city, easily accessible by public transport and just a few minutes away from major landmarks. Whether you're traveling by car or train, finding us is simple and straightforward. Use the map below to get directions and plan your visit.
+      {t("contact.title2")}
     </p>
     <div className="w-full h-[400px] mt-10 rounded-xl overflow-hidden shadow-lg">
   <iframe

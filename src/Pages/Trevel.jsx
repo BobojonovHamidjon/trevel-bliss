@@ -1,80 +1,83 @@
+import { t } from "i18next";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaFacebook, FaInstagram, FaTimes, FaMapMarkerAlt, FaRegClock, FaCalendarAlt, FaDollarSign } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const packagesData = [
   {
     id: 1,
-    country: "America",
-    title: "American Adventures: A Road Trip Across the USA",
+    country: t("trevel.country"),
+    title: t("trevel.text"),
     image: "/images/paskeg.jpg",
-    destination: "America",
-    duration: "8 days/7 nights",
-    dates: "Available from April to October",
-    price: "$2500",
+    destination: t("trevel.country") ,
+    duration: t("trevel.duration"),
+    dates: t("trevel.dates"),
+    price: t("trevel.price"),
   },
   {
     id: 2,
-    country: "Turkey",
-    title: "Turkish Delights: Discover the Wonders of Turkey",
+    country: t("trevel.country2"),
+    title: t("trevel.text2"),
     image: "/images/paskeg2.jpg",
-    destination: "Turkey, Istanbul",
-    duration: "7 days/6 nights",
-    dates: "Available from April to October",
-    price: "$3500",
+    destination: t("trevel.destination"),
+    duration: t("trevel.duration2"),
+    dates: t("trevel.dates2"),
+    price: t("trevel.price2"),
   },
   {
     id: 3,
-    country: "Japan",
-    title: "Japanese Harmony: A Journey Through Tradition and Modernity",
+    country: t("trevel.country3"),
+    title: t("trevel.text3"),
     image: "/images/paskeg3.jpg",
-    destination: "Japan",
-    duration: "10 days/9 nights",
-    dates: "Available from March to November",
-    price: "$3800",
+    destination: t("trevel.country3"),
+    duration: t("trevel.duration3"),
+    dates: t("trevel.dates2"),
+    price: t("trevel.price3"),
   },
   {
     id: 4,
-    country: "Dubai",
-    title: "Dubai Dream: Explore the Luxurious City of the Future",
+    country: t("trevel.country4"),
+    title: t("trevel.text4") ,
     image: "/images/paskeg4.jpg",
-    destination: "Dubai",
-    duration: "6 days/5 nights",
-    dates: "Available all year round",
+    destination: t("trevel.country4"),
+    duration: t("trevel.duration4"),
+    dates: t("trevel.dates3"),
     price: "$4000",
   },
   {
     id: 5,
-    country: "Spain",
-    title: "Spanish Streets: Madrid and Barcelona Adventure",
+    country: t("trevel.country5"),
+    title:  t("trevel.text5"),
     image: "/images/paskeg5.jpg",
-    destination: "Spain",
-    duration: "9 days/8 nights",
-    dates: "Available from May to September",
+    destination:  t("trevel.country5") ,
+    duration:  t("trevel. duration5"),
+    dates: t("trevel. dates4"),
     price: "$3300",
   },
   {
     id: 6,
-    country: "Italy",
-    title: "Italian Romance: Explore the Heart of Europe",
+    country:t("trevel.country6") ,
+    title: t("trevel.text6"),
     image: "/images/paskeg6.jpg",
-    destination: "Italy",
-    duration: "10 days/9 nights",
-    dates: "Available from March to October",
+    destination: t("trevel.country6"),
+    duration:t("trevel.duration6"),
+    dates: t("trevel.dates5"),
     price: "$3700",
   },
  
 ];
 
-const countries = ["All Packages", "America", "Turkey", "Japan", "Dubai", "Spain", "Italy"];
+const countries = [t("trevel.all"),t("trevel.country") , t("trevel.country2"), t("trevel.country3"), t("trevel.country4"), t("trevel.country5"), t("trevel.country6")];
 
 const TravelPackages = () => {
+  const { t, i18n } = useTranslation();
   const [search, setSearch] = useState("");
-  const [selectedCountry, setSelectedCountry] = useState("All Packages");
+  const [selectedCountry, setSelectedCountry] = useState(t("trevel.all"));
   const navigate = useNavigate();
 
   const filteredPackages = packagesData.filter((item) => {
-    const matchesCountry = selectedCountry === "All Packages" || item.country === selectedCountry;
+    const matchesCountry = selectedCountry === t("trevel.all") || item.country === selectedCountry;
     const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase());
     return matchesCountry && matchesSearch;
   });
@@ -86,7 +89,7 @@ const TravelPackages = () => {
         className="h-[320px] bg-cover bg-center  flex items-center justify-center relative "
         style={{ backgroundImage: "url('/images/package4.jpg')" }}
       >
-        <h1 className="text-5xl font-bold text-white drop-shadow-xl">Travel Packages</h1>
+        <h1 className="text-5xl font-bold text-white drop-shadow-xl">{t("trevel.title")}</h1>
 
         <div className="hidden md:flex flex-col items-center gap-4 absolute right-10">
           <div className="border border-white bg-white rounded-full p-2 hover:text-black transition">
@@ -120,7 +123,7 @@ const TravelPackages = () => {
 
         <input
           type="text"
-          placeholder="Search"
+          placeholder={t("gallery.Search")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="border border-gray-300 rounded-full px-5 py-2 w-full md:w-[300px] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"

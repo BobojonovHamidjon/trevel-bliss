@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import Swiper from "../Components/Swiper";
 import Marquee from "react-fast-marquee";
 import { FaFacebook, FaInstagram, FaTimes } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+
 
 const TravelGallery = () => {
+  const { t, i18n } = useTranslation();
   const [search, setSearch] = useState("");
 
   const showJapan = search === "" || search.toLowerCase().includes("japan");
@@ -19,7 +22,7 @@ const TravelGallery = () => {
   }}
 >
   <h1 className="text-5xl font-bold text-white drop-shadow-xl">
-    Travel Gallery
+    {t("gallery.title")}
   </h1>
 
  
@@ -42,7 +45,7 @@ const TravelGallery = () => {
         <div className="w-full md:w-[300px]">
           <input
             type="text"
-            placeholder="Search"
+            placeholder= {t("gallery.Search")}
             className="border border-gray-300 rounded-full px-5 py-2 w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -54,7 +57,7 @@ const TravelGallery = () => {
         <>
           <div className="text-center">
             <h2 className="text-4xl text-center">
-              Journey in <span className="font-bold">Japan</span>
+            {t("gallery.subtitle")}<span className="font-bold">{t("gallery.Japan")}</span>
             </h2>
           </div>
           <div className="flex justify-center gap-4 flex-wrap md:flex-nowrap p-4">
@@ -88,7 +91,7 @@ const TravelGallery = () => {
         <>
           <div className="text-center">
             <h2 className="text-4xl mt-12 mb-12">
-              Journey in <span className="font-bold">America</span>
+            {t("gallery.subtitle")}<span className="font-bold">{t("gallery.America")}</span>
             </h2>
           </div>
           <Swiper />
@@ -99,7 +102,7 @@ const TravelGallery = () => {
         <>
           <div className="text-center">
             <h2 className="text-4xl mt-12 mb-12">
-              Journey in <span className="font-bold">Turkey</span>
+             {t("gallery.subtitle")} <span className="font-bold">{t("gallery.Turkey")}</span>
             </h2>
           </div>
           <Marquee speed={100} className="mt-6 mb-20" >
@@ -126,7 +129,7 @@ const TravelGallery = () => {
 
       {!showJapan && !showAmerica && !showTurkey && (
         <div className="text-center text-gray-500 mb-20">
-          <p>No results found for "{search}"</p>
+          <p>{t("gallery.NotFound")} "{search}"</p>
         </div>
       )}
      </div>

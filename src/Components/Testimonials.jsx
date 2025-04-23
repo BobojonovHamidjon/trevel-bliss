@@ -2,46 +2,49 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 
+import { useTranslation } from "react-i18next";
+
 const Testimonials = () => {
+  const { t, i18n } = useTranslation();
   const testimonials = [
     {
-      name: "Alex Buckmaster",
-      text: "Traveling with this service was a game-changer for me. The customized itinerary perfectly matched my interests, and I was able to explore hidden gems.",
+      name: t("testimonials.name"),
+      text: t("testimonials.text"),
       image: "/images/Alex.png",
     },
     {
-      name: "Dennis Callis",
-      text: "The flexibility and range of options offered by this service were impressive. I was able to customize my trip to fit my schedule perfectly.",
+      name:t("testimonials.name2"),
+      text: t("testimonials.text2"),
       image: "/images/Denise.png",
     },
     {
-      name: "Judith Rodriguez",
-      text: "The best part about booking with this service was the ease and convenience. From start to finish, everything was seamless.",
+      name: t("testimonials.name3"),
+      text: t("testimonials.text3"),
       image: "/images/Judith.png",
     },
     {
-      name: "Michael Harris",
-      text: "What I loved the most was how responsive the team was. I had some last-minute changes, and they handled everything quickly and professionally.",
+      name: t("testimonials.name4"),
+      text: t("testimonials.text4"),
       image: "/images/Michahil.png",
     },
     {
-      name: "Liam Johnson",
-      text: "Booking a group trip was never this easy! The service tailored an itinerary that catered to everyone in our group. We made memories that will last a lifetime!",
+      name:t("testimonials.name5"),
+      text: t("testimonials.text5"),
       image: "/images/Liam.png",
     },
     {
-      name: "Mia Carter",
-      text: "The service made planning my trip effortless. The personalized suggestions were spot-on, and I felt like everything was taken care of.",
+      name: t("testimonials.name6"),
+      text: t("testimonials.text6"),
       image: "/images/Fram.png",
     },
     {
-      name: "Mia Carter",
-      text: "The service made planning my trip effortless. The personalized suggestions were spot-on, and I felt like everything was taken care of.",
+      name: t("testimonials.name7"),
+      text: t("testimonials.text7"),
       image: "/images/Fram.png",
     },
     {
-      name: "Mia Carter",
-      text: "The service made planning my trip effortless. The personalized suggestions were spot-on, and I felt like everything was taken care of.",
+      name: t("testimonials.name8"),
+      text: t("testimonials.text8"),
       image: "/images/Fram.png",
     },
   ];
@@ -72,10 +75,9 @@ const Testimonials = () => {
       viewport={{ once: true }}
     >
       <div className="md:flex md:justify-between md:items-start mb-12 gap-10">
-        <h2 className="text-3xl font-bold mb-2">What Our Customers Are Saying</h2>
+        <h2 className="text-3xl font-bold mb-2">{t("testimonials.title")}</h2>
         <p className="text-gray-600 max-w-2xl">
-          Our customers’ experiences help us continually improve our services.
-          Here’s what some of them have to say about their travels with us.
+        {t("testimonials.subtitle")}
         </p>
       </div>
 
