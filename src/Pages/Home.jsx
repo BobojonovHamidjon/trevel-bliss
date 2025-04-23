@@ -5,13 +5,14 @@ import TravelPackages from '../Components/TravelPackage'
 import FAQSection from '../Components/FaqSection'
 import Testimonials from '../Components/Testimonials'
 import i18n from '../i18n'
-const navigate = useNavigate();
+
 
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   return (
     <div>
           
@@ -26,7 +27,8 @@ const Home = () => {
 </h2>
 
               <div className="mt-6">
-  <button  onClick={() => navigate("/contact")}
+  <button  
+  onClick={() => navigate("/contact")}
   className="bg-white text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2">
    {t("home.Button")}
     <span className="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center">
